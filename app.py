@@ -20,7 +20,7 @@ def get_vectorstore(chunks):
 
 
 def get_conversation_chain(vectorstore):
-    model_name=os.getenv("MODEL_NAME")  # e.g. 'gpt-4-1106-preview' - costs  $0.01  / 1K tokens
+    model_name = os.getenv("MODEL_NAME")  # e.g. 'gpt-4-1106-preview' - costs  $0.01  / 1K tokens
     llm = ChatOpenAI(model=model_name)
     memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
     conversation_chain = ConversationalRetrievalChain.from_llm(
